@@ -1,10 +1,8 @@
 FROM ubuntu:18.04
-# FROM registry.cn-shanghai.aliyuncs.com/shuzhi-arm64v8/stream_base:3.6
 ARG linux_header_version=4.18.0-25
 ARG gpiod_git_version=v1.4.2
 # use aliyun mirrors
 RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list || sed -i 's/ports.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list
-COPY compile.sh .
 # RUN bash compile.sh
 RUN apt-get update && apt-get install -y git
 RUN apt-get install -y autoconf
